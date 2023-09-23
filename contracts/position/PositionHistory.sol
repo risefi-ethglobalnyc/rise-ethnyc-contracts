@@ -66,8 +66,7 @@ contract PositionHistory {
     function updatePositionRecord(
         UpdatePositionRecordParams memory p
     ) external {
-        // FIXME: increase / decrease / leveraging / deleveraging 주문 종류에 따라서 필요한 필드 업데이트
-        // TODO: Enum 활용
+
         PositionRecord storage positionRecord = positionRecords[p._trader][
             p._positionRecordId
         ];
