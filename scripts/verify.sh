@@ -45,10 +45,8 @@ PriceFetcher=$(jq -r '.L3.PriceFetcher' $CONTRACT_PATH)
 PositionVault=$(jq -r '.L3.PositionVault' $CONTRACT_PATH)
 OrderHistory=$(jq -r '.L3.OrderHistory' $CONTRACT_PATH)
 PositionHistory=$(jq -r '.L3.PositionHistory' $CONTRACT_PATH)
-PositionManager=$(jq -r '.L3.PositionManager' $CONTRACT_PATH)
 MarketOrder=$(jq -r '.L3.MarketOrder' $CONTRACT_PATH)
 OrderRouter=$(jq -r '.L3.OrderRouter' $CONTRACT_PATH)
-PriceMaster=$(jq -r '.L3.PriceMaster' $CONTRACT_PATH)
 
 npx hardhat verify --network $L3Network --contract contracts/account/TraderVault.sol:TraderVault $TraderVault
 npx hardhat verify --network $L3Network --contract contracts/market/Market.sol:Market $Market
@@ -61,7 +59,5 @@ npx hardhat verify --network $L3Network --contract contracts/price/PriceFetcher.
 npx hardhat verify --network $L3Network --contract contracts/position/PositionVault.sol:PositionVault $PositionVault
 npx hardhat verify --network $L3Network --contract contracts/order/OrderHistory.sol:OrderHistory $OrderHistory "$TraderVault"
 npx hardhat verify --network $L3Network --contract contracts/position/PositionHistory.sol:PositionHistory $PositionHistory "$PositionVault" "$TraderVault"
-npx hardhat verify --network $L3Network --contract contracts/position/PositionManager.sol:PositionManager $PositionManager "$PositionVault" "$Market"
 npx hardhat verify --network $L3Network --contract contracts/order/MarketOrder.sol:MarketOrder $MarketOrder "$TraderVault" "$RisePool" "$Market" "$PositionHistory" "$PositionVault" "$OrderHistory" "$GlobalState"
 npx hardhat verify --network $L3Network --contract contracts/order/OrderRouter.sol:OrderRouter $OrderRouter "$MarketOrder"
-npx hardhat verify --network $L3Network --contract contracts/price/PriceMaster.sol:PriceMaster $PriceMaster "$PriceManager" "$keeper"

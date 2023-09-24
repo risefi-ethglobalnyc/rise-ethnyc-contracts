@@ -17,10 +17,8 @@ export type L3Addresses = {
   PositionVault: string;
   OrderHistory: string;
   PositionHistory: string;
-  PositionManager: string;
   MarketOrder: string;
   OrderRouter: string;
-  PriceMaster: string;
 };
 
 async function main() {
@@ -99,12 +97,6 @@ async function deployL3Contracts(): Promise<L3Addresses> {
     { PositionUtils: positionUtils }
   );
 
-  // PositionManager
-  const positionManager = await deployContract(
-    "PositionManager",
-    [positionVault.address, market.address],
-    { OrderUtils: orderUtils, PnlUtils: pnlUtils }
-  );
 
   // MarketOrder
   const marketOrder = await deployContract(
@@ -131,12 +123,6 @@ async function deployL3Contracts(): Promise<L3Addresses> {
     marketOrder.address,
   ]);
 
-  // PriceMaster
-  const priceMaster = await deployContract("PriceMaster", [
-    priceManager.address,
-    keeper, // price keeper
-  ]);
-
   console.log("---------------------------------------------");
   console.log(">>> L3 Contracts Deployed:");
   console.log("TraderVault:", traderVault.address);
@@ -150,10 +136,8 @@ async function deployL3Contracts(): Promise<L3Addresses> {
   console.log("PositionVault:", positionVault.address);
   console.log("OrderHistory:", orderHistory.address);
   console.log("PositionHistory:", positionHistory.address);
-  console.log("PositionManager:", positionManager.address);
   console.log("MarketOrder:", marketOrder.address);
   console.log("OrderRouter:", orderRouter.address);
-  console.log("PriceMaster:", priceMaster.address);
   console.log("---------------------------------------------");
 
   const l3Addresses = {
@@ -168,10 +152,8 @@ async function deployL3Contracts(): Promise<L3Addresses> {
     PositionVault: positionVault.address,
     OrderHistory: orderHistory.address,
     PositionHistory: positionHistory.address,
-    PositionManager: positionManager.address,
     MarketOrder: marketOrder.address,
     OrderRouter: orderRouter.address,
-    PriceMaster: priceMaster.address,
   };
 
   const _filePath = __dirname + "/../output/contractAddresses.json";

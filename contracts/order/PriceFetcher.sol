@@ -4,6 +4,8 @@ pragma solidity ^0.8.0;
 
 import "../price/PriceManager.sol";
 
+// Simple Router for PriceManager
+
 contract PriceFetcher {
     PriceManager public priceManager;
 
@@ -16,10 +18,6 @@ contract PriceFetcher {
         uint256 _size,
         bool _isLong
     ) external view returns (uint256) {
-        /**
-         * // TODO: impl
-         * @dev Jae Yoon
-         */
 
         return priceManager.getAvgExecPrice(_marketId, _size, _isLong);
     }
