@@ -35,6 +35,30 @@ const config: HardhatUserConfig = {
       url: "https://goerli-rollup.arbitrum.io/rpc", // Arbitrum Testnet
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
     },
+    base_testnet: {
+      url: "https://goerli.base.org",
+      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+      gas: 1000000,
+      gasPrice: 2000000 // 0.002 Gwei
+    },
+    celo_testnet: {
+      url: "https://alfajores-forno.celo-testnet.org",
+      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+      gas: 1000000,
+      gasPrice: 30000000000 // 30 Gwei
+    },
+    linea_testnet: {
+      url: "https://rpc.goerli.linea.build",
+      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+    },
+    mantle_testnet: {
+      url: "https://rpc.testnet.mantle.xyz",
+      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+    },
+    neonevm_testnet: {
+      url: "https://testnet.neonevm.org",
+      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+    },
     polygonzkevm_testnet: {
       url: "https://rpc.public.zkevm-test.net",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
@@ -43,26 +67,7 @@ const config: HardhatUserConfig = {
       url: "https://sepolia-rpc.scroll.io",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
     },
-    base_testnet: {
-      url: "https://goerli.base.org",
-      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
-    },
-    mantle_testnet: {
-      url: "https://rpc.testnet.mantle.xyz",
-      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
-    },
-    celo_testnet: {
-      url: "https://alfajores-forno.celo-testnet.org",
-      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
-    },
-    linea_testnet: {
-      url: "https://rpc.goerli.linea.build",
-      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
-    },
-    neonevm_testnet: {
-      url: "https://testnet.neonevm.org",
-      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
-    },
+
   },
   etherscan: {
     apiKey: process.env.ARBISCAN_API_KEY as string,
@@ -73,6 +78,70 @@ const config: HardhatUserConfig = {
         urls: {
           apiURL: "https://explorer.risefinance.io/api",
           browserURL: "https://explorer.risefinance.io",
+        },
+      },
+      {
+        network: "arbitrum_testnet",
+        chainId: 421613,
+        urls: {
+          apiURL: "https://goerli.arbiscan.io/api",
+          browserURL: "https://goerli.arbiscan.io/",
+        },
+      },
+      {
+        network: "base_testnet",
+        chainId: 84531,
+        urls: {
+          apiURL: "https://goerli.basescan.org/api",
+          browserURL: "https://goerli.basescan.org/",
+        },
+      },
+      {
+        network: "celo_testnet",
+        chainId: 44787,
+        urls: {
+          apiURL: "https://alfajores.celoscan.io/api",
+          browserURL: "https://alfajores.celoscan.io/",
+        },
+      },
+      {
+        network: "linea_testnet",
+        chainId: 59140,
+        urls: {
+          apiURL: "https://explorer.goerli.linea.build/api",
+          browserURL: "https://explorer.goerli.linea.build/",
+        },
+      },
+      {
+        network: "mantle_testnet",
+        chainId: 5001,
+        urls: {
+          apiURL: "https://explorer.testnet.mantle.xyz/api",
+          browserURL: "https://explorer.testnet.mantle.xyz/",
+        },
+      },
+      {
+        network: "neonevm_testnet",
+        chainId: 245022940,
+        urls: {
+          apiURL: "https://devnet.neonscan.org/api",
+          browserURL: "https://devnet.neonscan.org/",
+        },
+      },
+      {
+        network: "polygonzkevm_testnet",
+        chainId: 245022940,
+        urls: {
+          apiURL: "https://testnet-zkevm.polygonscan.com/api",
+          browserURL: "https://testnet-zkevm.polygonscan.com/",
+        },
+      },
+      {
+        network: "scroll_testnet",
+        chainId: 534351,
+        urls: {
+          apiURL: "https://scroll.l2scan.co/api",
+          browserURL: "https://scroll.l2scan.co/",
         },
       },
     ],

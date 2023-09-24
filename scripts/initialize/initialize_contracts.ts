@@ -38,7 +38,10 @@ export async function initialize() {
   // console.log(">>> L2Vault initialized");
 
   // await tokenInfoL2.registerToken(testUsdcAddress, 18);
-  await tokenInfoL3.registerToken(testUsdcAddress, 18);
+  await tokenInfoL3.registerToken(testUsdcAddress, 18, {
+    gasLimit: 1000000,
+    gasPrice: 30000000000, // 30 gwei
+  });
   console.log(">>> TokenInfo initialized");
 
   console.log("Contracts initialized");

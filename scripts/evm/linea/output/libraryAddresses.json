@@ -1,0 +1,8 @@
+{
+    "Library": {
+      "MathUtils": "0x6FaF9F51f2F5459B607373C303e542Ee27b10361",
+      "OrderUtils": "0x8bcE2Db97cEeb7F6080d05466bc09Cd87D0182a9",
+      "PositionUtils": "0xFb6A4661E035B58e6eac9c713aB9BA59eE657022",
+      "PnlUtils": "0xC693456266FFfeA845fC5A3636f2FDDB2276F96e"
+    }
+  }

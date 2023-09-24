@@ -2,15 +2,14 @@
 
 HERE=$(dirname $(realpath $0))
 
-PRESET_PATH=$HERE/input/presetAddresses.json
-CONTRACT_PATH=$HERE/output/contractAddresses.json
-
-L2Network='l2testnet'
-L3Network='l3testnet'
+PRESET_PATH=$HERE/evm/celo/input/presetAddresses.json
+CONTRACT_PATH=$HERE/evm/celo/output/contractAddresses.json
+# L2Network='l2testnet'
+L3Network='celo_testnet'
 
 ##### Preset #####
 
-inbox=$(jq -r '.Inbox' $PRESET_PATH)
+# inbox=$(jq -r '.Inbox' $PRESET_PATH)
 
 ##### L2 #####
 
