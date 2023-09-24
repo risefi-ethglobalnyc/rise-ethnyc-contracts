@@ -39,7 +39,7 @@ const config: HardhatUserConfig = {
       url: "https://goerli.base.org",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
       gas: 1000000,
-      gasPrice: 2000000 // 0.002 Gwei
+      gasPrice: 30000000000 // 0.002 Gwei
     },
     celo_testnet: {
       url: "https://alfajores-forno.celo-testnet.org",
@@ -54,10 +54,14 @@ const config: HardhatUserConfig = {
     mantle_testnet: {
       url: "https://rpc.testnet.mantle.xyz",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+      gas: 1000000,
+      gasPrice: 100000000000 // 100 Gwei
     },
     neonevm_testnet: {
-      url: "https://testnet.neonevm.org",
+      url: "https://devnet.neonevm.org",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+      gas: 5000000,
+      gasPrice: 500000000000 // 100 Gwei
     },
     polygonzkevm_testnet: {
       url: "https://rpc.public.zkevm-test.net",
@@ -66,6 +70,8 @@ const config: HardhatUserConfig = {
     scroll_testnet: {
       url: "https://sepolia-rpc.scroll.io",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+      gas: 1000000,
+      gasPrice: 10000000 // 100 Gwei 4개줄임
     },
 
   },
