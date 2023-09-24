@@ -2,7 +2,6 @@
 
 pragma solidity ^0.8.0;
 
-import "../crosschain/interfaces/l3/ArbSys.sol";
 
 // TODO: check - `override` needed for function declared in the interface `IL3Vault`?
 contract TraderVault {
@@ -10,12 +9,6 @@ contract TraderVault {
     mapping(address => mapping(uint256 => uint256)) public traderBalances; // userAddress => assetId => Balance
     mapping(address => uint256) public traderOrderRecordCounts; // userAddress => orderCount
     mapping(address => uint256) public traderPositionRecordCounts; // userAddress => positionCount
-    mapping(address => bool) public isIsolated; // trader's margin mode
-
-    function changeMarginMode() public {
-        // TODO: allowed to change the margin mode only when there is no open position for the trader
-        isIsolated[msg.sender] = !isIsolated[msg.sender];
-    }
 
     // TODO: onlyManager
     function increaseTraderBalance(
