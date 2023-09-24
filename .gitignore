@@ -12,5 +12,5 @@ cache
 artifacts
 
 rpc
-scripts
+# scripts
 utils
