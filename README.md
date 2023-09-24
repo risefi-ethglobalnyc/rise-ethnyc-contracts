@@ -7,6 +7,8 @@ Rise Finance Core Contracts (ZK price feed data integrity proof)
 
 `OrderRouter` Contract (entrypoint) on Linea Testnet: https://goerli.lineascan.build/address/0x0080368d63726c563352DCEF7E1C92F4f7361193
 
+`PriceManager` Contract on Linea Testnet: https://goerli.lineascan.build/address/0xd78D79F3447744e76e8F661ea3D11371Cbe534Cc
+
 
 Verified `OrderRouter` Contract (entrypoint) on Scroll Sepholia Testnet: https://sepolia-blockscout.scroll.io/address/0xd0251672a3C9f59776e6Bf7a7CdddC7c11bEd8e4/contracts#address-tabs
 
