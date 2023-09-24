@@ -11,6 +11,6 @@ typechain-types
 cache
 artifacts
 
-rpc
+# rpc
 # scripts
-utils
+# utils
