@@ -21,9 +21,9 @@ export async function initialize() {
 
   // initialization parameters
 
-  const l3GatewayAddress = getContractAddress("L3Gateway", Network.L3);
-  const testUsdcAddress = getContractAddress("TestUSDC", Network.L2);
-  const bridgeAddress = getPresetAddress("Bridge");
+  // const l3GatewayAddress = getContractAddress("L3Gateway", Network.L3);
+  const testUsdcAddress = getContractAddress("TestUSDC", Network.L3);
+  // const bridgeAddress = getPresetAddress("Bridge");
 
   // await l2MarginGateway.initialize(l3GatewayAddress);
   // await l2MarginGateway.setAllowedBridge(bridgeAddress);

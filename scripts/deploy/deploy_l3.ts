@@ -2,10 +2,9 @@ import * as fs from "fs";
 import { Network } from "../../utils/network";
 import { deployContract } from "../../utils/deployer";
 import { getLibraryAddress } from "../../utils/getLibraryAddress";
-import { getContractAddress } from "../../utils/getContractAddress";
-import { getPresetAddress } from "../../utils/getPresetAddress";
 
 export type L3Addresses = {
+  TestUSDC: string;
   TraderVault: string;
   Market: string;
   TokenInfo: string;
@@ -40,8 +39,9 @@ async function deployL3Contracts(): Promise<L3Addresses> {
   // PnlUtils
   const pnlUtils = getLibraryAddress("PnlUtils");
 
-  const l2MarginGateway = getContractAddress("L2MarginGateway", Network.L2);
 
+  // Test USDC
+  const usdc = await deployContract("TestUSDC");
 
   // TraderVault
   const traderVault = await deployContract("TraderVault");
@@ -124,6 +124,7 @@ async function deployL3Contracts(): Promise<L3Addresses> {
 
   console.log("---------------------------------------------");
   console.log(">>> L3 Contracts Deployed:");
+  console.log("Test USDC:", usdc.address);
   console.log("TraderVault:", traderVault.address);
   console.log("Market:", market.address);
   console.log("TokenInfo:", tokenInfo.address);
@@ -140,6 +141,7 @@ async function deployL3Contracts(): Promise<L3Addresses> {
   console.log("---------------------------------------------");
 
   const l3Addresses = {
+    TestUSDC: usdc.address,
     TraderVault: traderVault.address,
     Market: market.address,
     TokenInfo: tokenInfo.address,
@@ -157,11 +159,12 @@ async function deployL3Contracts(): Promise<L3Addresses> {
 
   const _filePath = __dirname + "/../output/contractAddresses.json";
 
-  const l2Addresses = JSON.parse(fs.readFileSync(_filePath).toString())["L2"];
+  // const l2Addresses = JSON.parse(fs.readFileSync(_filePath).toString())["L2"];
 
   fs.writeFileSync(
     _filePath,
-    JSON.stringify({ L2: l2Addresses, L3: l3Addresses }, null, 2),
+    // JSON.stringify({ L2: l2Addresses, L3: l3Addresses }, null, 2),
+    JSON.stringify({ L3: l3Addresses }, null, 2),
     { flag: "w" }
   );
 
