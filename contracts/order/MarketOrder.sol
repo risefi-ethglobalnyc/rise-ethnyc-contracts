@@ -10,13 +10,11 @@ import "../order/OrderExecutor.sol";
 import "../order/PriceFetcher.sol";
 import "../order/OrderUtils.sol";
 import "../global/GlobalState.sol";
-import "./OrderValidator.sol";
 import "./OrderHistory.sol";
 
 import "hardhat/console.sol";
 
 contract MarketOrder is OrderExecutor {
-    OrderValidator public orderValidator;
     OrderHistory public orderHistory;
     PriceFetcher public priceFetcher;
     GlobalState public globalState;
@@ -27,7 +25,6 @@ contract MarketOrder is OrderExecutor {
         address _market,
         address _positionHistory,
         address _positionVault,
-        address _orderValidator,
         address _orderHistory,
         address _priceFetcher,
         address _globalState
@@ -40,7 +37,6 @@ contract MarketOrder is OrderExecutor {
             _positionVault
         )
     {
-        orderValidator = OrderValidator(_orderValidator);
         orderHistory = OrderHistory(_orderHistory);
         priceFetcher = PriceFetcher(_priceFetcher);
         globalState = GlobalState(_globalState);
@@ -71,12 +67,6 @@ contract MarketOrder is OrderExecutor {
             req.isLong,
             req.marketId
         );
-
-        // validations
-        req.isIncrease
-            ? orderValidator.validateIncreaseExecution(req)
-            : orderValidator.validateDecreaseExecution(req, ec.key);
-
         ec.openPosition = positionVault.getPosition(ec.key);
 
         // Execution type 1: open position

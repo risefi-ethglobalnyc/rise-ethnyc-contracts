@@ -12,11 +12,9 @@ export type L3Addresses = {
   ListingManager: string;
   RisePool: string;
   GlobalState: string;
-  L3Gateway: string;
   PriceManager: string;
   PriceFetcher: string;
   PositionVault: string;
-  OrderValidator: string;
   OrderHistory: string;
   PositionHistory: string;
   PositionManager: string;
@@ -70,15 +68,6 @@ async function deployL3Contracts(): Promise<L3Addresses> {
     PositionUtils: positionUtils,
   });
 
-  // L3Gateway
-  const l3Gateway = await deployContract("L3Gateway", [
-    traderVault.address,
-    tokenInfo.address,
-    risePool.address,
-    market.address,
-    l2MarginGateway,
-  ]);
-
   // PriceManager
   const priceManager = await deployContract("PriceManager", [
     globalState.address,
@@ -97,12 +86,6 @@ async function deployL3Contracts(): Promise<L3Addresses> {
     { PositionUtils: positionUtils }
   );
 
-  // OrderValidator
-  const orderValidator = await deployContract("OrderValidator", [
-    positionVault.address,
-    globalState.address,
-    risePool.address,
-  ]);
 
   // OrderHistory
   const orderHistory = await deployContract("OrderHistory", [
@@ -132,7 +115,6 @@ async function deployL3Contracts(): Promise<L3Addresses> {
       market.address,
       positionHistory.address,
       positionVault.address,
-      orderValidator.address,
       orderHistory.address,
       priceFetcher.address,
       globalState.address,
@@ -163,11 +145,9 @@ async function deployL3Contracts(): Promise<L3Addresses> {
   console.log("ListingManager:", listingManager.address);
   console.log("RisePool:", risePool.address);
   console.log("GlobalState:", globalState.address);
-  console.log("L3Gateway:", l3Gateway.address);
   console.log("PriceManager:", priceManager.address);
   console.log("PriceFetcher:", priceFetcher.address);
   console.log("PositionVault:", positionVault.address);
-  console.log("OrderValidator:", orderValidator.address);
   console.log("OrderHistory:", orderHistory.address);
   console.log("PositionHistory:", positionHistory.address);
   console.log("PositionManager:", positionManager.address);
@@ -183,11 +163,9 @@ async function deployL3Contracts(): Promise<L3Addresses> {
     RisePool: risePool.address,
     ListingManager: listingManager.address,
     GlobalState: globalState.address,
-    L3Gateway: l3Gateway.address,
     PriceManager: priceManager.address,
     PriceFetcher: priceFetcher.address,
     PositionVault: positionVault.address,
-    OrderValidator: orderValidator.address,
     OrderHistory: orderHistory.address,
     PositionHistory: positionHistory.address,
     PositionManager: positionManager.address,
