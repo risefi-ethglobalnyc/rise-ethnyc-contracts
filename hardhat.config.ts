@@ -60,7 +60,7 @@ const config: HardhatUserConfig = {
     neonevm_testnet: {
       url: "https://devnet.neonevm.org",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
-      gas: 5000000,
+      gas: 50000000,
       gasPrice: 500000000000 // 100 Gwei
     },
     polygonzkevm_testnet: {
