@@ -25,6 +25,7 @@ linea / celo / mantle / polygon zkevm : {
       "OrderRouter": "0x0080368d63726c563352DCEF7E1C92F4f7361193"
   }
 ```
+OrderRouter Contract (entrypoint) on Linea Testnet: https://goerli.lineascan.build/address/0x0080368d63726c563352DCEF7E1C92F4f7361193
 
 ```
 Arbitrum : {
