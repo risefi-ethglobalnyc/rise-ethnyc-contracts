@@ -9,14 +9,6 @@ contract RisePool {
     mapping(uint256 => uint256) private longReserveAmounts; // marketId => tokenCount
     mapping(uint256 => uint256) private shortReserveAmounts; // marketId => tokenCount
 
-    // function getPoolAmount(
-    //     uint256 _marketId,
-    //     bool _isLong
-    // ) external view returns (uint256) {
-    //     return
-    //         _isLong ? longPoolAmounts[_marketId] : shortPoolAmounts[_marketId];
-    // }
-
     /// getters
 
     function getLongPoolAmount(
