@@ -1,3 +1,3 @@
-# Rise Finance Core Contracts
+# ETH Global NYC Submission
 
-Rise Finance Core Contracts
+Rise Finance Core Contracts (ZK price feed data integrity proof)
