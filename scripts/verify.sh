@@ -11,7 +11,6 @@ L3Network='l3testnet'
 ##### Preset #####
 
 inbox=$(jq -r '.Inbox' $PRESET_PATH)
-keeper=$(jq -r '.keeper' $PRESET_PATH)
 
 ##### L2 #####
 

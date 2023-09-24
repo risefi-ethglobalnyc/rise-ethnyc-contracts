@@ -31,6 +31,10 @@ const config: HardhatUserConfig = {
     },
 
     // evm chains
+    arbitrum_testnet: {
+      url: "https://goerli-rollup.arbitrum.io/rpc", // Arbitrum Testnet
+      accounts: [process.env.DEPLOY_PRIVATE_KEY as string],
+    },
     polygonzkevm_testnet: {
       url: "https://rpc.public.zkevm-test.net",
       accounts: [process.env.DEPLOY_PRIVATE_KEY as string],

@@ -42,7 +42,6 @@ async function deployL3Contracts(): Promise<L3Addresses> {
 
   const l2MarginGateway = getContractAddress("L2MarginGateway", Network.L2);
 
-  const keeper = getPresetAddress("keeper");
 
   // TraderVault
   const traderVault = await deployContract("TraderVault");
